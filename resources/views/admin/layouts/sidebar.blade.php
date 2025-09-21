@@ -141,7 +141,7 @@
                 </a>
             </li>
             @endcan
-            
+
 
         </ul>
     </li>
@@ -156,7 +156,7 @@
         </a>
     </li>
     @endcan
-    
+
     <li class="dropdown">
         <a href="javascript:void(0)">
             <iconify-icon icon="mdi:calendar-month" class="menu-icon" title="Open Events"></iconify-icon>
@@ -190,9 +190,50 @@
         </ul>
     </li>
 
-    
 
-     <li class="dropdown">
+    <li class="dropdown">
+        <a href="javascript:void(0)">
+            <iconify-icon icon="mdi:school-outline" class="menu-icon" title="Admission"></iconify-icon>
+            <span>Admission Form</span>
+        </a>
+        <ul class="sidebar-submenu">
+            <li>
+                <a href="{{ route('admin.student-groups.index') }}">
+                    <iconify-icon icon="mdi:account-group-outline" class="menu-icon"></iconify-icon>
+                    <span>Group</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('admin.student-years.index') }}">
+                    <iconify-icon icon="mdi:calendar-clock" class="menu-icon"></iconify-icon>
+                    <span>Year</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('admin.student-language.index') }}">
+                    <iconify-icon icon="mdi:translate" class="menu-icon"></iconify-icon>
+                    <span>Language</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('admin.student-subject.index') }}">
+                    <iconify-icon icon="mdi:book-open-page-variant-outline" class="menu-icon"></iconify-icon>
+                    <span>Subject</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('admin.student-package.index') }}">
+                    <iconify-icon icon="mdi:package-variant-closed" class="menu-icon"></iconify-icon>
+                    <span>Package</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+
+
+
+
+    <li class="dropdown">
         <a href="javascript:void(0)">
             <iconify-icon icon="mdi:form-select" class="menu-icon" title="Form Submissions"></iconify-icon>
             <span>Form Submissions</span>
@@ -227,14 +268,14 @@
             </li>
             <li>
                 <a href="{{ route('admin.referrals.index') }}">
-                   <iconify-icon icon="mdi:handshake-outline" class="menu-icon" style="font-size:24px;"></iconify-icon>
+                    <iconify-icon icon="mdi:handshake-outline" class="menu-icon" style="font-size:24px;"></iconify-icon>
                     <span>Referral</span>
                 </a>
             </li>
         </ul>
     </li>
-   
-    
+
+
     <li class="dropdown">
         <a href="javascript:void(0)">
             <iconify-icon icon="mdi:form-select" class="menu-icon" title="Form Submissions"></iconify-icon>
@@ -247,15 +288,15 @@
                     <i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> Job Applications
                 </a>
             </li>
-              @endcan
-             <!-- @can('view staff')
+            @endcan
+            <!-- @can('view staff')
             <li>
                 <a href="{{ route('admin.staff-applications') }}">
                     <i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> Staff Applications
                 </a>
             </li>
               @endcan -->
-             @can('view apply')
+            @can('view apply')
             <li>
                 <a href="{{ route('admin.apply-now') }}">
                     <i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> Apply Now
@@ -286,7 +327,7 @@
                 </a>
             </li>
             @endcan
-            
+
             @can('view subscribe')
             <li>
                 <a href="{{ route('admin.subscribe-applications') }}">
@@ -295,7 +336,7 @@
             </li>
             @endcan
 
-        
+
 
 
         </ul>
@@ -309,7 +350,7 @@
         </a>
     </li>
     @endcan
-   
+
 
 
 </ul>

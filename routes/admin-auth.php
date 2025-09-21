@@ -26,7 +26,13 @@ use App\Http\Controllers\Admin\ReferralController;
 use App\Http\Controllers\Admin\TimeTableController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\StaffApplicationController;
+use App\Http\Controllers\Admin\StudentGroupController;
+use App\Http\Controllers\Admin\StudentLanguageController;
+use App\Http\Controllers\Admin\StudentPackageController;
+use App\Http\Controllers\Admin\StudentSubjectController;
+use App\Http\Controllers\Admin\StudentYearController;
 use App\Http\Controllers\Admin\WordPressApiController;
+use App\Models\StudentSubject;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('admin')->middleware('guest:admin')->group(function () {
@@ -140,6 +146,16 @@ Route::prefix('admin')->name('admin.')
     Route::resource('open-event-items',OpenEventItemController::class);
     Route::resource('meet-speakers',MeetSpeakerController::class);
     Route::resource('open-event-form',OpenEventSubmissionFormController::class);
+
+
+    // Student
+    Route::resource('student-groups',StudentGroupController::class);
+    Route::resource('student-years',StudentYearController::class);
+    Route::resource('student-language',StudentLanguageController::class);
+    Route::resource('student-subject',StudentSubjectController::class);
+    Route::resource('student-package',StudentPackageController::class);
+
+
 
 
 
