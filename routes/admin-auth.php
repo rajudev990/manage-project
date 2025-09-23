@@ -26,6 +26,7 @@ use App\Http\Controllers\Admin\ReferralController;
 use App\Http\Controllers\Admin\TimeTableController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\StaffApplicationController;
+use App\Http\Controllers\Admin\StudentCourseController;
 use App\Http\Controllers\Admin\StudentGroupController;
 use App\Http\Controllers\Admin\StudentLanguageController;
 use App\Http\Controllers\Admin\StudentPackageController;
@@ -105,6 +106,7 @@ Route::prefix('admin')->name('admin.')
     
     Route::resource('qualifications',QualificationController::class);
     Route::get('/group-year/{id}/qualifications', [QualificationController::class, 'getQualificationsByGroupYear']);
+    
 
 
     Route::resource('course-fees',CourseFeeController::class);
@@ -154,6 +156,10 @@ Route::prefix('admin')->name('admin.')
     Route::resource('student-language',StudentLanguageController::class);
     Route::resource('student-subject',StudentSubjectController::class);
     Route::resource('student-package',StudentPackageController::class);
+    Route::resource('student-course',StudentCourseController::class);
+    Route::get('/get-years/{group_id}', [StudentCourseController::class, 'getYears']);
+
+    
 
 
 

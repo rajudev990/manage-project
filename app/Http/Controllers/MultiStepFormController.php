@@ -43,6 +43,19 @@ class MultiStepFormController extends Controller
             $validated = $request->validate([
                 'payment_method' => 'nullable',
             ]);
+            
+        }
+        elseif ($step == 6) {
+            $validated = $request->validate([
+                'payment_method' => 'nullable',
+            ]);
+            
+        }
+        elseif ($step == 7) {
+            $validated = $request->validate([
+                'payment_method' => 'nullable',
+            ]);
+            
         }
 
         // merge করে session এ save করা
@@ -50,7 +63,7 @@ class MultiStepFormController extends Controller
         Session::put('formData', $data);
 
         // যদি শেষ ধাপ হয়
-        if ($step == 6) {
+        if ($step == 7) {
             // ✅ এখানে Payment Gateway integration হবে
             // Payment success হলে ডাটাবেজে save করুন
             // Example:

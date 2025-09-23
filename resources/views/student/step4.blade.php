@@ -12,129 +12,218 @@
                     <div class="progress mt-2">
                         <div class="progress-bar" id="progressBar" role="progressbar" style="width: 10%;"></div>
                     </div>
-                    <small id="progressText" class="text-light">10%</small>
+                    <small id="progressText" class="text-light">8%</small>
                 </div>
             </div>
         </div>
-        <div class="row mb-4">
-            <div class="col-lg-6 step-four m-auto">
-                <h3 class="text-center" style="color: #AE9A66;font-size:24px;font-weight:500;">Choose a Pricing Package That Suits You Best</h3>
-            </div>
-        </div>
-        <form action="{{ route('form.step.post', 4) }}" method="POST">
+        <form action="{{ route('form.step.post', 4) }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row d-flex justify-content-center">
-                <div class="col-lg-3">
-                    <div class="card p-4 mb-3 schoolbox active" style="background-color:#0c2a58;border-radius:24px;color:#FFF;cursor:pointer;">
-                        <div class="card-bodyr">
-                            <h3 class="py-3" style="color:#AE9A66;font-size: 20px;font-weight: 600;">Every Plan Comes With</h3>
+                <div class="col-lg-11">
+                    <div id="studentsContainer">
+                        <div class="card p-4 mb-3 " style="background-color:#0c2a58;border-radius:24px;color:#FFF;">
+                            <div class="card-body">
+                                <h3 class="text-center mb-5" style="color: #AE9A66;font-size: 24px;font-weight: 600;">Additional Information</h3>
+                                <!-- Row -->
+                                <div class="row">
 
-                            <ul style="list-style-type: none;padding-left: 0px;">
-                                <li class="mb-3">
-                                    <img width="16" height="16" src="{{ asset('frontend/assets/img/check.png') }}" alt="" class="img-fluid">
-                                     <span style="font-size: 16px;font-weight:400;color:#FFF;">Application Processing Fee:  £15</span>
-                                </li>
-                                <li class="mb-3">
-                                    <img width="16" height="16" src="{{ asset('frontend/assets/img/check.png') }}" alt="" class="img-fluid">
-                                     <span style="font-size: 16px;font-weight:400;color:#FFF;">Admission Fee:  £350</span>
-                                </li>
-                                <li class="mb-3">
-                                    <img width="16" height="16" src="{{ asset('frontend/assets/img/check.png') }}" alt="" class="img-fluid">
-                                     <span style="font-size: 16px;font-weight:400;color:#FFF;">Deposit: £100 (refundable at theend of the academic year)</span>
-                                </li>
-                                <li class="mb-3">
-                                    <img width="16" height="16" src="{{ asset('frontend/assets/img/check.png') }}" alt="" class="img-fluid">
-                                     <span style="font-size: 16px;font-weight:400;color:#FFF;">Includes 5 Islamic Subjects (Saving you £500/year)</span>
-                                </li>
-                                <li class="mb-3">
-                                    <img width="16" height="16" src="{{ asset('frontend/assets/img/check.png') }}" alt="" class="img-fluid">
-                                     <span style="font-size: 16px;font-weight:400;color:#FFF;">Total 13 Subjects</span>
-                                </li>
-                            </ul>
 
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="card p-4 mb-3 schoolbox active" onclick="$('.schoolbox').removeClass('active'); $(this).addClass('active');" style="background-color:#02142F;border-radius:24px;color:#FFF;cursor:pointer;">
-                        <div class="card-bodyr">
-                            <h3 class="py-3 text-center" style="color:#AE9A66;font-size: 24px;font-weight: 600;">Monthly Payment</h3>
+                                    <div class="col-md-7">
+                                        <label class="form-label d-block">
+                                            An Education & Health Care plan (EHCP) is a formal document
+                                            detailing a child's learning difficulties and the help they will be
+                                            given. Does the child have an Education Health Care Plan?
+                                            <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="d-flex gap-3">
+                                            <div>
+                                                <input type="radio" class="custom-radio" id="ehcp_yes" name="ehcp" value="1">
+                                                <label for="ehcp_yes" class="text-light">Yes</label>
+                                            </div>
+                                            <div>
+                                                <input type="radio" class="custom-radio" id="ehcp_no" name="ehcp" value="0">
+                                                <label for="ehcp_no" class="text-light">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                            <h1 class="" style="background: #061E42;padding:8px 60px;border-radius:8px;text-align:center;font-size:32px;font-weight:600;">
-                                £282
-                            </h1>
+                                    <div class="col-md-5">
+                                        <label class="form-label d-block w-492px h-63">
+                                            Permanent Exclusions : Has this child been permanently excluded (expelled)
+                                            from their previous school?
+                                            <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="d-flex gap-3">
+                                            <div>
+                                                <input type="radio" class="custom-radio" id="ehcp_yes" name="ehcp" value="1">
+                                                <label for="ehcp_yes" class="text-light">Yes</label>
+                                            </div>
+                                            <div>
+                                                <input type="radio" class="custom-radio" id="ehcp_no" name="ehcp" value="0">
+                                                <label for="ehcp_no" class="text-light">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                            <ul style="list-style-type: none;padding-left: 0px;margin-top:40px;">
-                                <li class="align-items-center d-flex mb-3">
-                                    <img width="20" height="20" src="{{ asset('frontend/assets/img/check.png') }}" alt="" class="img-fluid">
-                                     <span style="font-size: 18px;margin-left: 10px;font-weight:400;color:#FFF;">10 Monthly Instalments</span>
-                                </li>
-                            </ul>
+                                    <p class="col-md-8 text-light mb-0 mt-3">
+                                        <label class="form-label">
+                                            Fair Access Protocol: (Checkboxes option for the list below) -
+                                            Does the child fall under any of the below listed categories of the Fair Access Protocol?
+                                            <span class="text-danger">*</span>
+                                        </label>
+                                    </p>
 
-                            <div class="text-center mt-5">
-                                <p class="btn text-center" style="background: #AE9A66;padding:15px 24px;border-radius:99px;font-size:16px;font-weight:600;color:#FFF;">Select</p>
+                                    <div class="col-md-12 mt-3">
+                                        <div>
+                                            <input type="radio" class="custom-radio" id="ehcp_no" name="ehcp" value="0">
+                                            <label for="ehcp_no" class="text-light">Children subject to a child in need plan or a child protection plan within the last 12 months</label>
+                                        </div>
+                                        <div>
+                                            <input class="custom-radio" type="radio" id="ehcp_no" name="ehcp" value="0">
+                                            <label for="ehcp_no" class="text-light">Children living in a refuge</label>
+                                        </div>
+                                        <div>
+                                            <input class="custom-radio" type="radio" id="ehcp_no" name="ehcp" value="0">
+                                            <label for="ehcp_no" class="text-light">Children from the criminal justice system</label>
+                                        </div>
+                                        <div>
+                                            <input class="custom-radio" type="radio" id="ehcp_no" name="ehcp" value="0">
+                                            <label for="ehcp_no" class="text-light">Children who are carers</label>
+                                        </div>
+                                        <div>
+                                            <input class="custom-radio" type="radio" id="ehcp_no" name="ehcp" value="0">
+                                            <label for="ehcp_no" class="text-light">Children who are homeless</label>
+                                        </div>
+                                        <div>
+                                            <input class="custom-radio" type="radio" id="ehcp_no" name="ehcp" value="0">
+                                            <label for="ehcp_no" class="text-light">Children in formal kinship care arrangements</label>
+                                        </div>
+                                        <div>
+                                            <input class="custom-radio" type="radio" id="ehcp_no" name="ehcp" value="0">
+                                            <label for="ehcp_no" class="text-light">Children of, or who are, Gypsies, Roma or Travellers</label>
+                                        </div>
+                                        <div>
+                                            <input class="custom-radio" type="radio" id="ehcp_no" name="ehcp" value="0">
+                                            <label for="ehcp_no" class="text-light">Children who are refugees or asylum seekers</label>
+                                        </div>
+                                        <div>
+                                            <input class="custom-radio" type="radio" id="ehcp_no" name="ehcp" value="0">
+                                            <label for="ehcp_no" class="text-light">Children who have been out of education for four weeks or more</label>
+                                        </div>
+                                        <div>
+                                            <input class="custom-radio" type="radio" id="ehcp_no" name="ehcp" value="0">
+                                            <label for="ehcp_no" class="text-light">None</label>
+                                        </div>
+                                        <div>
+                                            <input class="custom-radio" type="radio" id="ehcp_no" name="ehcp" value="0">
+                                            <label for="ehcp_no" class="text-light">Other</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mt-4">
+                                        <div class="col-lg-6">
+                                            <div class="form-group mb-4">
+                                                <label for="form-label">If any of these apply, provide the supporting local authority</label>
+                                                <input name="gender" id="gender" class="form-control" placeholder="Local Authority">
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-lg-6">
+                                            <div class="form-group mb-4">
+                                                <label for="form-label">Provide the name of the assigned social worker*</label>
+                                                <input name="gender" id="gender" class="form-control" placeholder="Name">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mt-4">
+                                        <div class="col-md-6">
+                                            <label class="form-label d-block w-492px h-63">
+                                                Special Educational Needs and Disabilities: Is this child on the special educational needs and disabilities code of practice
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="d-flex gap-3">
+                                                <div>
+                                                    <input type="radio" class="custom-radio" id="ehcp_yes" name="ehcp" value="1">
+                                                    <label for="ehcp_yes" class="text-light">Yes</label>
+                                                </div>
+                                                <div>
+                                                    <input type="radio" class="custom-radio" id="ehcp_no" name="ehcp" value="0">
+                                                    <label for="ehcp_no" class="text-light">No</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label class="form-label d-block w-492px h-63">
+                                                Medical Conditions: Does the child have any long term medical conditions? 
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="d-flex gap-3">
+                                                <div>
+                                                    <input type="radio" class="custom-radio" id="ehcp_yes" name="ehcp" value="1">
+                                                    <label for="ehcp_yes" class="text-light">Yes</label>
+                                                </div>
+                                                <div>
+                                                    <input type="radio" class="custom-radio" id="ehcp_no" name="ehcp" value="0">
+                                                    <label for="ehcp_no" class="text-light">No</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mt-4">
+                                        <div class="col-md-6">
+                                            <label class="form-label d-block w-492px h-63">
+                                                Direct Placements: Has the child been directed to an Alternative Provision to improve their behaviour?
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="d-flex gap-3">
+                                                <div>
+                                                    <input type="radio" class="custom-radio" id="ehcp_yes" name="ehcp" value="1">
+                                                    <label for="ehcp_yes" class="text-light">Yes</label>
+                                                </div>
+                                                <div>
+                                                    <input type="radio" class="custom-radio" id="ehcp_no" name="ehcp" value="0">
+                                                    <label for="ehcp_no" class="text-light">No</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                         <div class="col-lg-6">
+                                            <div class="form-group mb-4">
+                                                <label for="form-label">Attendance in previous school: Attendance percentage</label>
+                                                <input name="gender" id="gender" class="form-control" placeholder="Percentage">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="form-group mb-4 mt-2">
+                                            <label for="">Consent <span class="text-danger">*</span></label><br>
+                                            <input type="checkbox" class="custom-chekhbox">
+                                            <span for="package" class="text-secondary">I have read and understood your admission process and agree with the Terms and Conditions of Al-Rushd Independent School.</span><br>
+
+                                            <div class="mt-3">
+                                                Please check that all information is correct before submitting it.
+                                           </div>
+
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <!-- End Rrow -->
                             </div>
-
-                            
                         </div>
+
                     </div>
                 </div>
-                <div class="col-lg-3">
-                    <div class="card p-4 mb-3 schoolbox" onclick="$('.schoolbox').removeClass('active'); $(this).addClass('active');" style="background-color:#02142F;border-radius:24px;color:#FFF;cursor:pointer;">
-                        <div class="card-bodyr">
-                            <h3 class="py-3 text-center" style="color:#AE9A66;font-size: 24px;font-weight: 600;">Termly Payment</h3>
-
-                            <h1 class="align-items-center d-flex justify-content-center" style="background: #061E42;padding:8px 0px;border-radius:8px;text-align:center;font-size:32px;font-weight:600;">
-                                £282 <del class="ms-2" style="color: #AE9A66;font-size:20px;">£940</del> 
-                                <span class="badge ms-4" style="background: #183E77;font-size:12px;padding:10px 15px;border-radius:99px;">Save £28</span>
-                            </h1>
-
-                            <ul style="list-style-type: none;padding-left: 0px;margin-top:40px;">
-                                <li class="align-items-center d-flex mb-3">
-                                    <img width="20" height="20" src="{{ asset('frontend/assets/img/check.png') }}" alt="" class="img-fluid">
-                                     <span style="font-size: 18px;margin-left: 10px;font-weight:400;color:#FFF;">3 Instalments</span>
-                                </li>
-                            </ul>
-
-                            <div class="text-center mt-5">
-                                <p class="btn text-center" style="background: #183E77;padding:15px 24px;border-radius:99px;font-size:16px;font-weight:600;color:#FFF;">Select</p>
-                            </div>
-
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="card p-4 mb-3 schoolbox" onclick="$('.schoolbox').removeClass('active'); $(this).addClass('active');" style="background-color:#02142F;border-radius:24px;color:#FFF;cursor:pointer;">
-                        <div class="card-bodyr">
-                            <h3 class="py-3 text-center" style="color:#AE9A66;font-size: 24px;font-weight: 600;">Annual Contract</h3>
-
-                           <h1 class="align-items-center d-flex justify-content-center" style="background: #061E42;padding:8px 0px;border-radius:8px;text-align:center;font-size:32px;font-weight:600;">
-                                £282 <del class="ms-2" style="color: #AE9A66;font-size:20px;">£940</del> 
-                                <span class="badge ms-4" style="background: #183E77;font-size:12px;padding:10px 15px;border-radius:99px;">Save £28</span>
-                            </h1>
-
-                            <ul style="list-style-type: none;padding-left: 0px;margin-top:40px;">
-                                <li class="align-items-center d-flex mb-3">
-                                    <img width="20" height="20" src="{{ asset('frontend/assets/img/check.png') }}" alt="" class="img-fluid">
-                                     <span style="font-size: 18px;margin-left: 10px;font-weight:400;color:#FFF;">1 Year Instalment</span>
-                                </li>
-                            </ul>
-
-                            <div class="text-center mt-5">
-                                <p class="btn text-center" style="background:#183E77;padding:15px 24px;border-radius:99px;font-size:16px;font-weight:600;color:#FFF;">Select</p>
-                            </div>
-
-                            
-                        </div>
-                    </div>
-                </div>
-
-               
             </div>
-            <div class="row mt-3">
-                <div class="col-lg-4 m-auto">
+            <div class="row mt-3 mb-5">
+                <div class="col-lg-11 m-auto">
+
                     <button type="submit" class="btn custom-btn w-100">Continue</button>
                     <div class="text-center mt-4">
                         <a href="{{ route('form.step', 3) }}" class="text-light text-decoration-none"><i class="fa fa-arrow-left"></i> Go Back</a>
@@ -145,6 +234,15 @@
     </div>
 </section>
 
+
+
+@endsection
+
+
+@section('script')
+<script>
+
+</script>
 
 
 @endsection

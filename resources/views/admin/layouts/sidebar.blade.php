@@ -227,6 +227,14 @@
                     <span>Package</span>
                 </a>
             </li>
+
+            <li>
+                <a href="{{ route('admin.student-course.index') }}">
+                    <iconify-icon icon="mdi:book-open-variant" class="menu-icon"></iconify-icon>
+                    <span>Course</span>
+                </a>
+            </li>
+
         </ul>
     </li>
 

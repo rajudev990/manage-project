@@ -33,7 +33,7 @@
 
         }
 
-        .custom-btn:hover{
+        .custom-btn:hover {
             background-color: #183e77;
             color: #FFF;
             border-color: #061e42;
@@ -161,6 +161,40 @@
             border-width: 0 2px 2px 0;
             transform: rotate(45deg);
         }
+
+
+        /* Tanvir  */
+        .custom-radio {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            cursor: pointer;
+            width: 20px;
+            height: 20px;
+            border-radius: 50% !important;
+            border: 1px solid #AE9A66 !important;
+            position: relative;
+            vertical-align: middle;
+            transition: all 0.2s ease-in-out;
+            padding: 0px !important;
+        }
+
+
+        /* Checked হলে */
+        .custom-radio:checked {
+            background-color: #AE9A66 !important;
+            border-color: #AE9A66 !important;
+        }
+
+
+        .custom-chekhbox{
+            width: 20px;
+            height:20px;
+            background-color: #AE9A66 !important;
+            border-color: #AE9A66 !important;
+        }
+
+
     </style>
 </head>
 
