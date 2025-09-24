@@ -24,9 +24,15 @@
         </div>
         <form action="{{ route('form.step.post', 1) }}" method="POST">
             @csrf
+            <!-- Hidden input where value will be stored -->
+            <input type="hidden" name="selected_school" id="selected_school">
+
             <div class="row d-flex justify-content-center">
                 <div class="col-lg-4">
-                    <div class="card p-4 mb-3 schoolbox active" onclick="$('.schoolbox').removeClass('active'); $(this).addClass('active');" style="background-color:#0c2a58;border-radius:24px;color:#FFF;cursor:pointer;">
+                    <div class="card p-4 mb-3 schoolbox active"
+                        data-value="uk_school"
+                        onclick="selectSchool(this)"
+                        style="background-color:#0c2a58;border-radius:24px;color:#FFF;cursor:pointer;">
                         <div class="card-body text-center">
                             <img src="{{ asset('frontend/assets/img/flag.png') }}" width="48" height="24" alt="" class="img-fluid">
                             <h3 class="py-3" style="font-size: 28px;font-weight: 600;">UK School</h3>
@@ -37,10 +43,13 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="card p-4 mb-3 schoolbox" onclick="$('.schoolbox').removeClass('active'); $(this).addClass('active');" style="background-color:#0c2a58;border-radius:24px;color:#FFF;cursor:pointer;">
+                    <div class="card p-4 mb-3 schoolbox"
+                        data-value="intl_school"
+                        onclick="selectSchool(this)"
+                        style="background-color:#0c2a58;border-radius:24px;color:#FFF;cursor:pointer;">
                         <div class="card-body text-center">
                             <img src="{{ asset('frontend/assets/img/flag.png') }}" width="48" height="24" alt="" class="img-fluid">
-                            <h3 class="py-3" style="font-size: 28px;font-weight: 600;">UK School</h3>
+                            <h3 class="py-3" style="font-size: 28px;font-weight: 600;">International School</h3>
                             <p class="mb-0" style="color: #AE9A66;font-size:20px;font-weight:400;">Time zones:</p>
                             <p style="font-size:20px;font-weight:500;line-height: 28px;">GMT/BST, GMT+4, GMT+7</p>
                             <p style="font-weight: 400;font-size: 16px;line-height: 24px;">Follow the British curriculum from anywhere in the world</p>
@@ -58,5 +67,32 @@
 </section>
 
 
+
+@endsection
+
+
+
+@section('script')
+
+<script>
+    function selectSchool(el) {
+        // Remove active from all
+        document.querySelectorAll('.schoolbox').forEach(box => box.classList.remove('active'));
+
+        // Add active to clicked
+        el.classList.add('active');
+
+        // Set hidden input value from data-value
+        document.getElementById('selected_school').value = el.getAttribute('data-value');
+    }
+
+    // Default select first one (if you want)
+    document.addEventListener("DOMContentLoaded", function() {
+        let firstActive = document.querySelector('.schoolbox.active');
+        if (firstActive) {
+            document.getElementById('selected_school').value = firstActive.getAttribute('data-value');
+        }
+    });
+</script>
 
 @endsection

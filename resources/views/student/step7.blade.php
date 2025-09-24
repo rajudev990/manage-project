@@ -17,7 +17,7 @@
             </div>
         </div>
 
-        <form action="{{ route('form.step.post',7) }}" method="POST">
+        <form action="{{ route('form.step.post',7) }}" method="POST" id="form">
             @csrf
             <div class="row d-flex justify-content-center">
 

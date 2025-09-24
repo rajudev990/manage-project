@@ -17,7 +17,7 @@
             </div>
         </div>
 
-        <form action="{{ route('form.step.post', 2) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('form.step.post', 2) }}" method="POST" enctype="multipart/form-data" id="form">
             @csrf
 
             <div class="row d-flex justify-content-center">
@@ -28,10 +28,10 @@
                             <h3 class="text-center mb-5" style="color: #AE9A66;font-size: 24px;font-weight: 600;">Primary Parent / Guardian Information</h3>
 
                             <div class="row">
-                                <div class="col-lg-2">
+                                <div class="col-lg-4">
                                     <div class="form-group mb-4">
                                         <label for="title">Title</label>
-                                        <select name="title" id="title" class="form-control form-select">
+                                        <select name="title" id="title" class="form-control form-select" required>
                                             <option value="">-- Select --</option>
                                             <option value="Mr">Mr</option>
                                             <option value="Mrs">Mrs</option>
@@ -48,13 +48,13 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-lg-5">
+                                <div class="col-lg-4">
                                     <div class="form-group mb-4">
                                         <label for="fname">First Name <span class="text-danger">*</span></label>
                                         <input type="text" name="fname" class="form-control" placeholder="First name here" required>
                                     </div>
                                 </div>
-                                <div class="col-lg-5">
+                                <div class="col-lg-4">
                                     <div class="form-group mb-4">
                                         <label for="lname">Last Name <span class="text-danger">*</span></label>
                                         <input type="text" name="lname" class="form-control" placeholder="Last name here" required>
@@ -106,8 +106,6 @@
                                     <div class="form-group mb-4">
                                         <label for="home_telephone">Home Telephone <span class="text-danger">*</span></label>
                                         <input type="text" id="home_telephone" name="home_telephone" class="form-control phone-input" required>
-
-
                                     </div>
                                 </div>
                                 <div class="col-lg-4">
@@ -222,10 +220,10 @@
                             <h3 class="text-center mb-5" style="color: #AE9A66;font-size: 24px;font-weight: 600;">Secondary Parent / Guardian Information</h3>
 
                             <div class="row">
-                                <div class="col-lg-2">
+                                <div class="col-lg-4">
                                     <div class="form-group mb-4">
                                         <label for="title">Title</label>
-                                        <select name="title" id="title" class="form-control form-select">
+                                        <select name="secondary_title" id="title" class="form-control form-select">
                                             <option value="">-- Select --</option>
                                             <option value="Mr">Mr</option>
                                             <option value="Mrs">Mrs</option>
@@ -242,23 +240,23 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-lg-5">
+                                <div class="col-lg-4">
                                     <div class="form-group mb-4">
                                         <label for="fname">First Name <span class="text-danger">*</span></label>
-                                        <input type="text" name="fname" class="form-control" placeholder="First name here" required>
+                                        <input type="text" name="secondary_fname" class="form-control" placeholder="First name here" required>
                                     </div>
                                 </div>
-                                <div class="col-lg-5">
+                                <div class="col-lg-4">
                                     <div class="form-group mb-4">
                                         <label for="lname">Last Name <span class="text-danger">*</span></label>
-                                        <input type="text" name="lname" class="form-control" placeholder="Last name here" required>
+                                        <input type="text" name="secondary_lname" class="form-control" placeholder="Last name here" required>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-12">
                                     <div class="form-group mb-4">
                                         <label for="relationship">Relationship to Student(s)<span class="text-danger">*</span></label>
-                                        <select name="relationship" id="relationship" class="form-control form-select" required>
+                                        <select name="secondary_relationship" id="relationship" class="form-control form-select" required>
                                             <option value="">-- Select --</option>
                                             <option value="Father">Father</option>
                                             <option value="Mother">Mother</option>
@@ -279,27 +277,27 @@
                                 <div class="col-lg-6">
                                     <div class="form-group mb-4">
                                         <label for="email">Email Address <span class="text-danger">*</span></label>
-                                        <input type="email" name="email" class="form-control" placeholder="Your email here" required>
+                                        <input type="email" name="secondary_email" class="form-control" placeholder="Your email here" required>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group mb-4">
                                         <label for="confirm_email">Confirm Email Address <span class="text-danger">*</span></label>
-                                        <input type="email" name="confirm_email" class="form-control" placeholder="Your email here" required>
+                                        <input type="email" name="secondary_confirm_email" class="form-control" placeholder="Your email here" required>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-4">
                                     <div class="form-group mb-4">
                                         <label for="mobile_number">Mobile Number <span class="text-danger">*</span></label>
-                                        <input type="text" id="mobile_number" name="mobile_number" class="form-control phone-input" required>
+                                        <input type="text" id="mobile_number" name="secondary_mobile_number" class="form-control phone-input" required>
 
                                     </div>
                                 </div>
                                 <div class="col-lg-4">
                                     <div class="form-group mb-4">
                                         <label for="home_telephone">Home Telephone <span class="text-danger">*</span></label>
-                                        <input type="text" id="home_telephone" name="home_telephone" class="form-control phone-input" required>
+                                        <input type="text" id="home_telephone" name="secondary_home_telephone" class="form-control phone-input" required>
 
 
                                     </div>
@@ -307,7 +305,7 @@
                                 <div class="col-lg-4">
                                     <div class="form-group mb-4">
                                         <label for="work_number">Work Number <span class="text-danger">*</span></label>
-                                        <input type="text" id="work_number" name="work_number" class="form-control phone-input" required>
+                                        <input type="text" id="work_number" name="secondary_work_number" class="form-control phone-input" required>
                                     </div>
                                 </div>
 
@@ -316,42 +314,42 @@
                                 <div class="col-lg-6">
                                     <div class="form-group mb-4">
                                         <label for="address">Street Address <span class="text-danger">*</span></label>
-                                        <input type="text" name="address" class="form-control" placeholder="Street address" required>
+                                        <input type="text" name="secondary_address" class="form-control" placeholder="Street address" required>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-6">
                                     <div class="form-group mb-4">
                                         <label for="apartment">Apartment, Suite, etc <span class="text-danger">*</span></label>
-                                        <input type="text" name="apartment" class="form-control" placeholder="Apartment, Suite, etc" required>
+                                        <input type="text" name="secondary_apartment" class="form-control" placeholder="Apartment, Suite, etc" required>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-6">
                                     <div class="form-group mb-4">
                                         <label for="city">City <span class="text-danger">*</span></label>
-                                        <input type="text" name="city" class="form-control" placeholder="City name" required>
+                                        <input type="text" name="secondary_city" class="form-control" placeholder="City name" required>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-6">
                                     <div class="form-group mb-4">
                                         <label for="province">State/Province <span class="text-danger">*</span></label>
-                                        <input type="text" name="province" class="form-control" placeholder="State/Province" required>
+                                        <input type="text" name="secondary_province" class="form-control" placeholder="State/Province" required>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-6">
                                     <div class="form-group mb-4">
                                         <label for="postal_code">Zip/Postal Code <span class="text-danger">*</span></label>
-                                        <input type="text" name="postal_code" class="form-control" placeholder="Zip/Postal Code" required>
+                                        <input type="text" name="secondary_postal_code" class="form-control" placeholder="Zip/Postal Code" required>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-6">
                                     <div class="form-group mb-4">
                                         <label for="country">Country of Residence <span class="text-danger">*</span></label>
-                                        <select id="country" name="country" class="form-control form-select country" data-live-search="true" title="-- Select Country --" required>
+                                        <select id="country" name="secondary_country" class="form-control form-select country" data-live-search="true" title="-- Select Country --" required>
                                             <option value="Bangladesh">Bangladesh</option>
                                         </select>
 

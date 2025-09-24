@@ -16,7 +16,7 @@
                 </div>
             </div>
         </div>
-        <form action="{{ route('form.step.post', 3) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('form.step.post', 3) }}" method="POST" enctype="multipart/form-data" id="form">
             @csrf
             <div class="row d-flex justify-content-center">
                 <div class="col-lg-10">
@@ -25,7 +25,7 @@
                             <div class="card-body">
                                 <h3 class="text-center mb-5" style="color: #AE9A66;font-size: 24px;font-weight: 600;">Tell us about your first child</h3>
                                 <div class="row">
-                                    
+
                                     <div class="col-lg-6">
                                         <div class="form-group mb-4">
                                             <label for="fname">Student’s First Name<span class="text-danger">*</span></label>
@@ -39,7 +39,7 @@
                                         </div>
                                     </div>
 
-                                    
+
 
                                     <div class="col-lg-6">
                                         <div class="form-group mb-4">
@@ -61,7 +61,7 @@
                                     <div class="col-lg-6">
                                         <div class="form-group mb-4">
                                             <label for="gender">Nationality<span class="text-danger">*</span></label>
-                                            <select name="gender" id="gender" class="form-control form-select" required>
+                                            <select name="Nationality" id="gender" class="form-control form-select" required>
                                                 <option value="">-- Select --</option>
                                                 <option value="Bangladeshi">Bangladeshi</option>
                                                 <option value="Indian">Indian</option>
@@ -77,7 +77,7 @@
                                     <div class="col-lg-6">
                                         <div class="form-group mb-4">
                                             <label for="gender">Desired Start Date<span class="text-danger">*</span></label>
-                                            <select name="gender" id="gender" class="form-control form-select" required>
+                                            <select name="start_date" id="gender" class="form-control form-select" required>
                                                 <option value="">-- Select --</option>
                                                 <option value="12/12/2025">12/12/2025</option>
                                                 <option value="12/12/2026">12/12/2026</option>
@@ -118,7 +118,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="col-lg-12">
                                         <div class="form-group mb-4">
                                             <label for="package">Your Core Subjects</label>
@@ -151,20 +151,22 @@
                                             <div>
                                                 <span class="badge fs-5" style="background-color:#AE9A66;">English</span>
                                                 <span class="badge fs-5" style="background-color:#AE9A66;">Mathmatics</span>
-                                            
+
                                             </div>
                                         </div>
                                     </div>
-                                    
-                                    <div class="col-lg-12">
-                                        <div class="form-group mb-4">
+
+
+                                    <div class="form-check mb-4 ps-0">
+                                        <!-- Checkbox HTML -->
+                                        <label class="custom-check">
+                                            <span class="text-light"> Add the optional Hifdh Programme for an £840 per year.</span>
                                             <input type="checkbox">
-                                            <label for="package">Add the optional Hifdh Programme for an £840 per year.</label>
-                                            
-                                        </div>
+                                            <span class="custom-checkmark"></span>
+                                        </label>
                                     </div>
 
-                                
+
                                     <div class="col-lg-12 mt-3">
                                         <div class="card">
                                             <div class="card-body text-dark">
@@ -244,11 +246,11 @@
     });
 </script>
 <script>
-$(document).ready(function() {
+    $(document).ready(function() {
 
-    // Template for new student card
-    function getStudentCard(index) {
-        return `
+        // Template for new student card
+        function getStudentCard(index) {
+            return `
         <div class="card p-4 mb-3 student-card" style="background-color:#0c2a58;border-radius:24px;color:#FFF; position: relative;">
             <div class="card-body">
                 <button type="button" class="btn btn-danger btn-sm remove-card" style="position: absolute; top: 15px; right: 15px;">
@@ -447,22 +449,22 @@ $(document).ready(function() {
             </div>
         </div>
         `;
-    }
+        }
 
-    let studentCount = 1; // First child already exists
+        let studentCount = 1; // First child already exists
 
-    // Add More Button Click
-    $("#addMore").click(function() {
-        studentCount++;
-        $("#studentsContainer").append(getStudentCard(studentCount));
+        // Add More Button Click
+        $("#addMore").click(function() {
+            studentCount++;
+            $("#studentsContainer").append(getStudentCard(studentCount));
+        });
+
+        // Remove card
+        $(document).on("click", ".remove-card", function() {
+            $(this).closest(".student-card").remove();
+        });
+
     });
-
-    // Remove card
-    $(document).on("click", ".remove-card", function() {
-        $(this).closest(".student-card").remove();
-    });
-
-});
 </script>
 
 @endsection

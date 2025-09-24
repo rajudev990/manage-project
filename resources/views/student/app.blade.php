@@ -109,7 +109,7 @@
             position: relative;
             display: inline-block;
             cursor: pointer;
-            font-size: 15px;
+            font-size: 16px;
             padding-left: 35px;
             user-select: none;
             color: #000;
@@ -163,6 +163,9 @@
         }
 
 
+
+
+
         /* Tanvir  */
         .custom-radio {
             -webkit-appearance: none;
@@ -187,14 +190,86 @@
         }
 
 
-        .custom-chekhbox{
+        .custom-chekhbox {
             width: 20px;
-            height:20px;
+            height: 20px;
             background-color: #AE9A66 !important;
             border-color: #AE9A66 !important;
         }
 
+        .error {
+            color: #ae9a66;
+        }
 
+        .is-invalid {
+            border: 2px solid #ae9a66 !important;
+            /* লাল */
+        }
+
+        .is-valid {
+            border: 2px solid #183E77 !important;
+            /* সবুজ */
+        }
+
+
+
+          .custom-checks {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            font-size: 14px;
+            padding-left: 35px;
+            user-select: none;
+            color:#6c757d;
+            font-weight: 700;
+        }
+
+        .custom-checks input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+        .custom-checkmarks {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 26px;
+            width: 26px;
+            background-color: #fff;
+            border: 2px solid #ae9a66;
+            border-radius: 4px;
+            /* চাইলে গোল করে নিতে পারো */
+            transition: all 0.3s ease-in-out;
+        }
+
+        .custom-checks input:checked~.custom-checkmarks {
+            background-color: #ae9a66;
+            border-color: #ae9a66;
+        }
+
+        .custom-checkmarks:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        .custom-checks input:checked~.custom-checkmarks:after {
+            display: block;
+        }
+
+        .custom-checks .custom-checkmarks:after {
+            left: 8px;
+            top: 2px;
+            width: 8px;
+            height: 12px;
+            border: solid #fff;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+        
     </style>
 </head>
 
@@ -210,6 +285,74 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/country-select-js/2.0.1/js/countrySelect.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
+
+    <script type="text/javascript">
+        // ---- form validation
+        $("#form").validate({
+            rules: {
+                name: {
+                    required: true
+                },
+                email: {
+                    required: true,
+                    email: true
+                },
+                password: {
+                    required: true,
+                    minlength: 3
+                },
+                conf_password: {
+                    required: true,
+                    equalTo: "#password"
+                },
+                mobile_number: {
+                    required: true,
+                    minlength: 10,
+                    maxlength: 10
+                },
+            },
+            messages: {
+                name: {
+                    required: "Please enter your name!"
+                },
+                email: {
+                    required: "Please enter an email!",
+                    email: "Please enter valid email address."
+                },
+                password: {
+                    required: "Please enter password."
+                },
+                conf_password: {
+                    required: "Please enter confirm password.",
+                    equalTo: "Password and confirm password does not match"
+                },
+                mobile_number: {
+                    required: "Please enter mobile number."
+                },
+            },
+            // Error label তৈরি হবে
+            errorElement: "label",
+            errorClass: "error",
+
+            highlight: function(element, errorClass, validClass) {
+                $(element).addClass("is-invalid").removeClass("is-valid");
+            },
+            unhighlight: function(element, errorClass, validClass) {
+                $(element).removeClass("is-invalid").addClass("is-valid");
+            },
+
+            errorPlacement: function(error, element) {
+                // Checkbox বা radio হলে ভিন্নভাবে বসানো
+                if (element.prop("type") === "checkbox" || element.prop("type") === "radio") {
+                    error.insertAfter(element.parent("label"));
+                } else {
+                    error.insertAfter(element); // input এর নিচে বসবে
+                }
+            }
+
+        });
+    </script>
 
     @yield('script')
 </body>

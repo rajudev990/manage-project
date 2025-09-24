@@ -16,7 +16,7 @@
                 </div>
             </div>
         </div>
-        <form action="{{ route('form.step.post', 4) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('form.step.post', 4) }}" method="POST" enctype="multipart/form-data" id="form">
             @csrf
             <div class="row d-flex justify-content-center">
                 <div class="col-lg-11">
@@ -37,12 +37,12 @@
                                         </label>
                                         <div class="d-flex gap-3">
                                             <div>
-                                                <input type="radio" class="custom-radio" id="ehcp_yes" name="ehcp" value="1">
-                                                <label for="ehcp_yes" class="text-light">Yes</label>
+                                                <input type="radio" class="custom-radio" id="yes" name="yes" value="1">
+                                                <label for="yes" class="text-light" id="yes">Yes</label>
                                             </div>
                                             <div>
-                                                <input type="radio" class="custom-radio" id="ehcp_no" name="ehcp" value="0">
-                                                <label for="ehcp_no" class="text-light">No</label>
+                                                <input type="radio" class="custom-radio" id="no" name="yes" value="0">
+                                                <label for="no" class="text-light">No</label>
                                             </div>
                                         </div>
                                     </div>
@@ -55,12 +55,12 @@
                                         </label>
                                         <div class="d-flex gap-3">
                                             <div>
-                                                <input type="radio" class="custom-radio" id="ehcp_yes" name="ehcp" value="1">
-                                                <label for="ehcp_yes" class="text-light">Yes</label>
+                                                <input type="radio" class="custom-radio" id="ayes" name="ayes" value="1">
+                                                <label for="ayes" class="text-light" id="ayes">Yes</label>
                                             </div>
                                             <div>
-                                                <input type="radio" class="custom-radio" id="ehcp_no" name="ehcp" value="0">
-                                                <label for="ehcp_no" class="text-light">No</label>
+                                                <input type="radio" class="custom-radio" id="ano" name="ayes" value="0">
+                                                <label for="ano" class="text-light">No</label>
                                             </div>
                                         </div>
                                     </div>
@@ -75,48 +75,48 @@
 
                                     <div class="col-md-12 mt-3">
                                         <div>
-                                            <input type="radio" class="custom-radio" id="ehcp_no" name="ehcp" value="0">
-                                            <label for="ehcp_no" class="text-light">Children subject to a child in need plan or a child protection plan within the last 12 months</label>
+                                            <input type="radio" class="custom-radio" id="yes_1" name="yes_1" value="0">
+                                            <label for="yes_1" class="text-light">Children subject to a child in need plan or a child protection plan within the last 12 months</label>
                                         </div>
                                         <div>
-                                            <input class="custom-radio" type="radio" id="ehcp_no" name="ehcp" value="0">
-                                            <label for="ehcp_no" class="text-light">Children living in a refuge</label>
+                                            <input class="custom-radio" type="radio" id="yes_2" name="yes_2" value="0">
+                                            <label for="yes_2" class="text-light">Children living in a refuge</label>
                                         </div>
                                         <div>
-                                            <input class="custom-radio" type="radio" id="ehcp_no" name="ehcp" value="0">
-                                            <label for="ehcp_no" class="text-light">Children from the criminal justice system</label>
+                                            <input class="custom-radio" type="radio" id="yes_3" name="yes_3" value="0">
+                                            <label for="yes_3" class="text-light">Children from the criminal justice system</label>
                                         </div>
                                         <div>
-                                            <input class="custom-radio" type="radio" id="ehcp_no" name="ehcp" value="0">
-                                            <label for="ehcp_no" class="text-light">Children who are carers</label>
+                                            <input class="custom-radio" type="radio" id="yes_4" name="yes_4" value="0">
+                                            <label for="yes_4" class="text-light">Children who are carers</label>
                                         </div>
                                         <div>
-                                            <input class="custom-radio" type="radio" id="ehcp_no" name="ehcp" value="0">
-                                            <label for="ehcp_no" class="text-light">Children who are homeless</label>
+                                            <input class="custom-radio" type="radio" id="yes_5" name="yes_5" value="0">
+                                            <label for="yes_5" class="text-light">Children who are homeless</label>
                                         </div>
                                         <div>
-                                            <input class="custom-radio" type="radio" id="ehcp_no" name="ehcp" value="0">
-                                            <label for="ehcp_no" class="text-light">Children in formal kinship care arrangements</label>
+                                            <input class="custom-radio" type="radio" id="yes_6" name="yes_6" value="0">
+                                            <label for="yes_6" class="text-light">Children in formal kinship care arrangements</label>
                                         </div>
                                         <div>
-                                            <input class="custom-radio" type="radio" id="ehcp_no" name="ehcp" value="0">
-                                            <label for="ehcp_no" class="text-light">Children of, or who are, Gypsies, Roma or Travellers</label>
+                                            <input class="custom-radio" type="radio" id="yes_7" name="yes_7" value="0">
+                                            <label for="yes_7" class="text-light">Children of, or who are, Gypsies, Roma or Travellers</label>
                                         </div>
                                         <div>
-                                            <input class="custom-radio" type="radio" id="ehcp_no" name="ehcp" value="0">
-                                            <label for="ehcp_no" class="text-light">Children who are refugees or asylum seekers</label>
+                                            <input class="custom-radio" type="radio" id="yes_8" name="yes_8" value="0">
+                                            <label for="yes_8" class="text-light">Children who are refugees or asylum seekers</label>
                                         </div>
                                         <div>
-                                            <input class="custom-radio" type="radio" id="ehcp_no" name="ehcp" value="0">
-                                            <label for="ehcp_no" class="text-light">Children who have been out of education for four weeks or more</label>
+                                            <input class="custom-radio" type="radio" id="yes_9" name="yes_9" value="0">
+                                            <label for="yes_9" class="text-light">Children who have been out of education for four weeks or more</label>
                                         </div>
                                         <div>
-                                            <input class="custom-radio" type="radio" id="ehcp_no" name="ehcp" value="0">
-                                            <label for="ehcp_no" class="text-light">None</label>
+                                            <input class="custom-radio" type="radio" id="yes_10" name="yes_10" value="0">
+                                            <label for="yes_10" class="text-light">None</label>
                                         </div>
                                         <div>
-                                            <input class="custom-radio" type="radio" id="ehcp_no" name="ehcp" value="0">
-                                            <label for="ehcp_no" class="text-light">Other</label>
+                                            <input class="custom-radio" type="radio" id="yes_11" name="yes_11" value="0">
+                                            <label for="yes_11" class="text-light">Other</label>
                                         </div>
                                     </div>
 
@@ -145,11 +145,11 @@
                                             </label>
                                             <div class="d-flex gap-3">
                                                 <div>
-                                                    <input type="radio" class="custom-radio" id="ehcp_yes" name="ehcp" value="1">
+                                                    <input type="radio" class="custom-radio" id="ehcp_yes" name="ehcp_yes" value="1">
                                                     <label for="ehcp_yes" class="text-light">Yes</label>
                                                 </div>
                                                 <div>
-                                                    <input type="radio" class="custom-radio" id="ehcp_no" name="ehcp" value="0">
+                                                    <input type="radio" class="custom-radio" id="ehcp_no" name="ehcp_yes" value="0">
                                                     <label for="ehcp_no" class="text-light">No</label>
                                                 </div>
                                             </div>
@@ -162,12 +162,12 @@
                                             </label>
                                             <div class="d-flex gap-3">
                                                 <div>
-                                                    <input type="radio" class="custom-radio" id="ehcp_yes" name="ehcp" value="1">
-                                                    <label for="ehcp_yes" class="text-light">Yes</label>
+                                                    <input type="radio" class="custom-radio" id="ehcp_yes_1" name="ehcp_yes_1" value="1">
+                                                    <label for="ehcp_yes_1" class="text-light">Yes</label>
                                                 </div>
                                                 <div>
-                                                    <input type="radio" class="custom-radio" id="ehcp_no" name="ehcp" value="0">
-                                                    <label for="ehcp_no" class="text-light">No</label>
+                                                    <input type="radio" class="custom-radio" id="ehcp_yes_2" name="ehcp_yes_1" value="0">
+                                                    <label for="ehcp_yes_2" class="text-light">No</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -181,17 +181,17 @@
                                             </label>
                                             <div class="d-flex gap-3">
                                                 <div>
-                                                    <input type="radio" class="custom-radio" id="ehcp_yes" name="ehcp" value="1">
-                                                    <label for="ehcp_yes" class="text-light">Yes</label>
+                                                    <input type="radio" class="custom-radio" id="yeson" name="yesone" value="1">
+                                                    <label for="yeson" class="text-light">Yes</label>
                                                 </div>
                                                 <div>
-                                                    <input type="radio" class="custom-radio" id="ehcp_no" name="ehcp" value="0">
-                                                    <label for="ehcp_no" class="text-light">No</label>
+                                                    <input type="radio" class="custom-radio" id="yesno" name="yesone" value="1">
+                                                    <label for="yesno" class="text-light">No</label>
                                                 </div>
                                             </div>
                                         </div>
 
-                                         <div class="col-lg-6">
+                                        <div class="col-lg-6">
                                             <div class="form-group mb-4">
                                                 <label for="form-label">Attendance in previous school: Attendance percentage</label>
                                                 <input name="gender" id="gender" class="form-control" placeholder="Percentage">
@@ -199,16 +199,18 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-6">
-                                        <div class="form-group mb-4 mt-2">
-                                            <label for="">Consent <span class="text-danger">*</span></label><br>
-                                            <input type="checkbox" class="custom-chekhbox">
-                                            <span for="package" class="text-secondary">I have read and understood your admission process and agree with the Terms and Conditions of Al-Rushd Independent School.</span><br>
 
-                                            <div class="mt-3">
-                                                Please check that all information is correct before submitting it.
-                                           </div>
+                                    <div class="form-check col-lg-6 mt-4 mb-4">
+                                        <label>Consent <span class="text-danger">*</span></label><br>
+                                        <label class="custom-checks" for="chek">
+                                            I have read and understood your admission process and agree with the Terms
+                                            and Conditions of Al-Rushd Independent School.
+                                            <input id="chek" type="checkbox" required>
+                                            <span class="custom-checkmarks"></span>
+                                        </label>
 
+                                        <div class="mt-3">
+                                            Please check that all information is correct before submitting it.
                                         </div>
                                     </div>
 
