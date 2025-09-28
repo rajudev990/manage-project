@@ -23,6 +23,7 @@ use App\Http\Controllers\Admin\OpenEventController;
 use App\Http\Controllers\Admin\OpenEventItemController;
 use App\Http\Controllers\Admin\OpenEventSubmissionFormController;
 use App\Http\Controllers\Admin\ReferralController;
+use App\Http\Controllers\Admin\SchoolController;
 use App\Http\Controllers\Admin\TimeTableController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\StaffApplicationController;
@@ -158,6 +159,9 @@ Route::prefix('admin')->name('admin.')
     Route::resource('student-package',StudentPackageController::class);
     Route::resource('student-course',StudentCourseController::class);
     Route::get('/get-years/{group_id}', [StudentCourseController::class, 'getYears']);
+
+
+    Route::resource('student-school',SchoolController::class);
 
     
 
