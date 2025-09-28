@@ -51,7 +51,9 @@ Route::get('/student-admission',[MultiStepFormController::class,'studentAdmissio
 Route::get('/student-admission/step/{step}', [MultiStepFormController::class, 'showStep'])->name('form.step');
 Route::post('/student-admission/step/{step}', [MultiStepFormController::class, 'postStep'])->name('form.step.post');
 
-
+Route::get('/get-years/{group}', [MultiStepFormController::class, 'getYears']);
+Route::get('/get-packages/{group}/{year}', [MultiStepFormController::class, 'getPackages']);
+Route::get('/get-course-details', [MultiStepFormController::class, 'getCourseDetails']); // AJAX subjects + hifdh
 
 Route::get('/get-packages/{groupId}', [FrontendController::class, 'getPackages']);
 Route::get('/get-plans/{packageId}', [FrontendController::class, 'getPlans']);

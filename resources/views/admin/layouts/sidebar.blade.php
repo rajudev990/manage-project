@@ -235,6 +235,14 @@
                 </a>
             </li>
 
+            <li>
+                <a href="{{ route('admin.student-school.index') }}">
+                    <iconify-icon icon="mdi:school" class="menu-icon"></iconify-icon>
+                    <span>School</span>
+                </a>
+            </li>
+
+
         </ul>
     </li>
 
