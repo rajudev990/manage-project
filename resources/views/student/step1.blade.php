@@ -22,41 +22,40 @@
                 <p class="text-center text-light" style="font-size: 24px;font-weight:500;">Select your school</p>
             </div>
         </div>
-        <form action="{{ route('form.step.post', 1) }}" method="POST">
+        <form action="{{ route('form.step.post', 1) }}" method="POST" id="schoolForm">
             @csrf
             <!-- Hidden input where value will be stored -->
-            <input type="hidden" name="selected_school" id="selected_school">
+            <input type="hidden" name="selected_school" id="selected_school" value="{{ old('selected_school', $data['selected_school'] ?? '') }}">
 
             <div class="row d-flex justify-content-center">
+                @foreach($schools as $item)
                 <div class="col-lg-4">
-                    <div class="card p-4 mb-3 schoolbox active"
-                        data-value="uk_school"
+                    <div class="card p-4 mb-3 schoolbox {{ (old('selected_school', $data['selected_school'] ?? '') == $item->name) ? 'active' : '' }}"
+                        data-value="{{ $item->name }}"
                         onclick="selectSchool(this)"
                         style="background-color:#0c2a58;border-radius:24px;color:#FFF;cursor:pointer;">
                         <div class="card-body text-center">
-                            <img src="{{ asset('frontend/assets/img/flag.png') }}" width="48" height="24" alt="" class="img-fluid">
-                            <h3 class="py-3" style="font-size: 28px;font-weight: 600;">UK School</h3>
+                            <img src="{{ Storage::url($item->image) }}" width="48" height="24" alt="" class="img-fluid">
+                            <h3 class="py-3" style="font-size: 28px;font-weight: 600;">{{ $item->name }}</h3>
                             <p class="mb-0" style="color: #AE9A66;font-size:20px;font-weight:400;">Time zones:</p>
-                            <p style="font-size:20px;font-weight:500;line-height: 28px;">GMT/BST, GMT+4, GMT+7</p>
-                            <p style="font-weight: 400;font-size: 16px;line-height: 24px;">Follow the British curriculum from anywhere in the world</p>
+                            <p style="font-size:20px;font-weight:500;line-height: 28px;">{{ $item->timezone }}</p>
+                            <p style="font-weight: 400;font-size: 16px;line-height: 24px;">
+                                {{ $item->description }}
+                            </p>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="card p-4 mb-3 schoolbox"
-                        data-value="intl_school"
-                        onclick="selectSchool(this)"
-                        style="background-color:#0c2a58;border-radius:24px;color:#FFF;cursor:pointer;">
-                        <div class="card-body text-center">
-                            <img src="{{ asset('frontend/assets/img/flag.png') }}" width="48" height="24" alt="" class="img-fluid">
-                            <h3 class="py-3" style="font-size: 28px;font-weight: 600;">International School</h3>
-                            <p class="mb-0" style="color: #AE9A66;font-size:20px;font-weight:400;">Time zones:</p>
-                            <p style="font-size:20px;font-weight:500;line-height: 28px;">GMT/BST, GMT+4, GMT+7</p>
-                            <p style="font-weight: 400;font-size: 16px;line-height: 24px;">Follow the British curriculum from anywhere in the world</p>
-                        </div>
-                    </div>
+                @endforeach
+            </div>
+
+            <!-- Error Message -->
+            <div id="schoolError" class="row mt-2 d-none">
+                <div class="col-lg-8 m-auto">
+                    <div class="alert alert-danger">Please select a school before continuing.</div>
                 </div>
             </div>
+
+            <!-- Submit button -->
             <div class="row mt-3">
                 <div class="col-lg-4 m-auto">
                     <button type="submit" class="btn custom-btn w-100">Start Registration</button>
@@ -73,7 +72,6 @@
 
 
 @section('script')
-
 <script>
     function selectSchool(el) {
         // Remove active from all
@@ -84,14 +82,25 @@
 
         // Set hidden input value from data-value
         document.getElementById('selected_school').value = el.getAttribute('data-value');
+
+        // Hide error if any
+        document.getElementById('schoolError').classList.add('d-none');
     }
 
-    // Default select first one (if you want)
-    document.addEventListener("DOMContentLoaded", function() {
-        let firstActive = document.querySelector('.schoolbox.active');
-        if (firstActive) {
-            document.getElementById('selected_school').value = firstActive.getAttribute('data-value');
+    // Form submit validation
+    document.getElementById('schoolForm').addEventListener('submit', function(e) {
+        let selectedValue = document.getElementById('selected_school').value;
+        if (!selectedValue) {
+            e.preventDefault(); // Prevent form submit
+            alert('Please select a school before continuing!'); // Alert
         }
+    });
+
+    // Optionally: don't auto select first school, keep hidden blank initially
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById('selected_school').value = '';
+        // Remove any active class from all school boxes initially
+        document.querySelectorAll('.schoolbox').forEach(box => box.classList.remove('active'));
     });
 </script>
 

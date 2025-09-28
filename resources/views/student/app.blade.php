@@ -269,6 +269,10 @@
             border-width: 0 2px 2px 0;
             transform: rotate(45deg);
         }
+
+        .subject-badge.active{
+            background-color: #183E77 !important;
+        }
         
     </style>
 </head>
@@ -308,8 +312,6 @@
                 },
                 mobile_number: {
                     required: true,
-                    minlength: 10,
-                    maxlength: 10
                 },
             },
             messages: {
